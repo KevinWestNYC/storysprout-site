@@ -1,6 +1,7 @@
 import React from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-
+import "react-pdf/dist/esm/Page/TextLayer.css"
+import "react-pdf/dist/esm/Page/AnnotationLayer.css"
 
 // Set the workerSrc to load PDF.js worker from CDN
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
