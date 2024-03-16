@@ -1,17 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import NavBar from "./Components/NavBar";
-import AppRouter from "./Components/Router"; // Renamed to avoid naming conflict with 'Router' from 'react-router-dom'
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import AppRouter from "./Components/AppRouter";
 
 export default function App() {
   return (
-    <Router> {/* Use BrowserRouter to provide a routing context */}
-      <div id="root">
-        <main id="home">
-          {/* <NavBar /> */}
-          <AppRouter /> {/* This is your custom Router component, which should perhaps be renamed to avoid confusion */}
+    <Router>
+      <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <main style={{ flex: 1 }}>
+          {/* Ensuring that AppRouter (and thus, Home) can fill available space */}
+          <AppRouter />
         </main>
-        <p>FOOTER</p>
+        <footer className="footer-container" >
+          {/* Links in the footer */}
+          <Link to="/" style={{ margin: '0 10px' }}>Home</Link> |
+          <Link to="/contact" style={{ margin: '0 10px' }}>Contact</Link> |
+          <Link to="/privacy-policy" style={{ margin: '0 10px' }}>Privacy Policy</Link>
+        </footer>
       </div>
     </Router>
   );

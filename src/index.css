@@ -10,14 +10,51 @@ html {
   box-sizing: border-box;
 }
 
-
-.lato {
-  font-family: 'Lato', sans-serif !important;
+#root{
+  display: flex;
+   flex-direction: column;
+   min-height: 100vh;
 }
 
-.montserrat {
-  font-family: 'Montserrat', sans-serif !important;
+.page-content {
+  height: calc(100vh - 38.5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightblue;
 }
-/* font-family: 'Lato', sans-serif; */
-/* font-family: 'Montserrat', sans-serif; */
-/* font-family: 'Roboto', sans-serif; */
+
+.home-logo {
+  max-height: 50%;
+  max-width: 75%;
+  border-radius: 20px;
+}
+
+.app-store-button {
+  margin-top: 24px;
+  width: 150px;
+   height: auto;
+}
+
+
+.footer-container{
+  text-align: center;
+   padding: 10px 0;
+   margin-top: auto;
+   text-align: center;
+   border-top: 1px solid #ccc
+}
+
+
+.gabriela-regular {
+  font-family: "Gabriela", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bellefair-regular {
+  font-family: "Bellefair", serif;
+  font-weight: 400;
+  font-style: normal;
+}

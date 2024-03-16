@@ -1,21 +1,77 @@
-import React from "react";
-import {
-  Grid,
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  Typography,
-} from "@material-ui/core";
-import ContactForm from '../Components/ContactForm'
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Button, TextField, Box, Typography, Container } from '@material-ui/core';
 
-export default function Contact() {
+const ContactPage = () => {
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  const url = 'https://oms-server.com';
+
+  const handleSendEmail = async () => {
+    try {
+      const response = await axios.post(`${url}/api/sendEmail/sendNewEmail`, {
+        email,
+        subject,
+        message,
+      });
+
+      if (response.status === 200) {
+        setEmail("")
+        setSubject("")
+        setMessage("")
+        alert("Your email was sent successfully!");
+      } else {
+        alert("An unexpected error occurred. Please try again later.");
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert("An unexpected error occurred. Please try again later.");
+    }
+  };
+
   return (
-    <div className="page-content">
-      <h1 className="page-title">CONTACT</h1>
-      <div className="contact-form">
-      <ContactForm />
-      </div>
-    </div>
+    <Container maxWidth="sm" style={{ marginTop: '20px' }}>
+      <Typography variant="h4" style={{ textAlign: 'center', marginBottom: '20px' }}>Contact</Typography>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSendEmail();
+        }}
+      >
+        <TextField
+          label="Email"
+          type="email"
+          fullWidth
+          margin="normal"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          label="Subject"
+          fullWidth
+          margin="normal"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        />
+        <TextField
+          label="Message"
+          fullWidth
+          margin="normal"
+          multiline
+          minRows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <Box textAlign='center' marginTop="20px">
+          <Button type="submit" variant="contained" color="primary">
+            Send
+          </Button>
+        </Box>
+      </form>
+    </Container>
   );
-}
+};
+
+export default ContactPage;
