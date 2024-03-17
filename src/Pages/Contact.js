@@ -27,7 +27,7 @@ const ContactPage = () => {
       }
     } catch (error) {
       console.error('Error sending email:', error);
-      alert("An unexpected error occurred. Please try again later.");
+      alert("An unexpected error occurred. Please try again later. ");
     }
   };
 
