@@ -10,9 +10,12 @@ export default function Home() {
   return (
     <div className="page-content">
         <img src={OMSLogo} className="home-logo"/>
+        {/* <div> */}
         <a href={appStoreLink} target="_blank" rel="noopener noreferrer" >
             <img src={AppStoreLogo} alt="Download on the App Store" className="app-store-button"/>
         </a>
+        <p className="gabriela-regular">Available Exclusively On iPad!</p>
+        {/* </div> */}
     </div>
   );
 }
