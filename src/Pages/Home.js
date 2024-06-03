@@ -14,7 +14,7 @@ export default function Home() {
         <a href={appStoreLink} target="_blank" rel="noopener noreferrer" >
             <img src={AppStoreLogo} alt="Download on the App Store" className="app-store-button"/>
         </a>
-        <p className="gabriela-regular">Available Exclusively On iPad!</p>
+        <p className="gabriela-regular">Available Exclusively On The App Store!</p>
         {/* </div> */}
     </div>
   );
